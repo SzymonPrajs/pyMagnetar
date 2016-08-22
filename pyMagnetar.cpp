@@ -267,9 +267,9 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__rectangle
-#define __PYX_HAVE_API__rectangle
-#include "cRectangle.h"
+#define __PYX_HAVE__pyMagnetar
+#define __PYX_HAVE_API__pyMagnetar
+#include "magnetar.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -485,22 +485,22 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "rectangle.pyx",
+  "pyMagnetar.pyx",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_9rectangle_PyRectangle;
+struct __pyx_obj_10pyMagnetar_Magnetar;
 
-/* "rectangle.pyx":10
- *         void move(int, int)
+/* "pyMagnetar.pyx":6
+ *         int filterTest()
  * 
- * cdef class PyRectangle:             # <<<<<<<<<<<<<<
- *     cdef Rectangle *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self, int x0, int y0, int x1, int y1):
+ * cdef class Magnetar:             # <<<<<<<<<<<<<<
+ *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
+ *     def __cinit__(self):
  */
-struct __pyx_obj_9rectangle_PyRectangle {
+struct __pyx_obj_10pyMagnetar_Magnetar {
   PyObject_HEAD
-  shapes::Rectangle *thisptr;
+  cMagnetar *thisptr;
 };
 
 
@@ -572,13 +572,8 @@ struct __pyx_obj_9rectangle_PyRectangle {
 static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
     Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
 
-/* RaiseDoubleKeywords.proto */
-static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
-
-/* ParseKeywords.proto */
-static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
-    PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
-    const char* function_name);
+/* KeywordStringCheck.proto */
+static CYTHON_INLINE int __Pyx_CheckKeywordStrings(PyObject *kwdict, const char* function_name, int kw_allowed);
 
 /* CodeObjectCache.proto */
 typedef struct {
@@ -602,14 +597,14 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 
-/* CIntFromPy.proto */
-static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
-
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
+
+/* CIntFromPy.proto */
+static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
 /* CheckBinaryVersion.proto */
 static int __Pyx_check_binary_version(void);
@@ -618,139 +613,64 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'rectangle' */
-static PyTypeObject *__pyx_ptype_9rectangle_PyRectangle = 0;
-#define __Pyx_MODULE_NAME "rectangle"
-int __pyx_module_is_main_rectangle = 0;
+/* Module declarations from 'pyMagnetar' */
+static PyTypeObject *__pyx_ptype_10pyMagnetar_Magnetar = 0;
+#define __Pyx_MODULE_NAME "pyMagnetar"
+int __pyx_module_is_main_pyMagnetar = 0;
 
-/* Implementation of 'rectangle' */
-static const char __pyx_k_dx[] = "dx";
-static const char __pyx_k_dy[] = "dy";
-static const char __pyx_k_x0[] = "x0";
-static const char __pyx_k_x1[] = "x1";
-static const char __pyx_k_y0[] = "y0";
-static const char __pyx_k_y1[] = "y1";
+/* Implementation of 'pyMagnetar' */
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
-static PyObject *__pyx_n_s_dx;
-static PyObject *__pyx_n_s_dy;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_n_s_x0;
-static PyObject *__pyx_n_s_x1;
-static PyObject *__pyx_n_s_y0;
-static PyObject *__pyx_n_s_y1;
-static int __pyx_pf_9rectangle_11PyRectangle___cinit__(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self, int __pyx_v_x0, int __pyx_v_y0, int __pyx_v_x1, int __pyx_v_y1); /* proto */
-static void __pyx_pf_9rectangle_11PyRectangle_2__dealloc__(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9rectangle_11PyRectangle_4getLength(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9rectangle_11PyRectangle_6getHeight(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9rectangle_11PyRectangle_8getArea(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9rectangle_11PyRectangle_10move(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self, PyObject *__pyx_v_dx, PyObject *__pyx_v_dy); /* proto */
-static PyObject *__pyx_tp_new_9rectangle_PyRectangle(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self); /* proto */
+static void __pyx_pf_10pyMagnetar_8Magnetar_2__dealloc__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_4filterTest(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self); /* proto */
+static PyObject *__pyx_tp_new_10pyMagnetar_Magnetar(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 
-/* "rectangle.pyx":12
- * cdef class PyRectangle:
- *     cdef Rectangle *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self, int x0, int y0, int x1, int y1):             # <<<<<<<<<<<<<<
- *         self.thisptr = new Rectangle(x0, y0, x1, y1)
+/* "pyMagnetar.pyx":8
+ * cdef class Magnetar:
+ *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
+ *     def __cinit__(self):             # <<<<<<<<<<<<<<
+ *         self.thisptr = new cMagnetar()
  *     def __dealloc__(self):
  */
 
 /* Python wrapper */
-static int __pyx_pw_9rectangle_11PyRectangle_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_9rectangle_11PyRectangle_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  int __pyx_v_x0;
-  int __pyx_v_y0;
-  int __pyx_v_x1;
-  int __pyx_v_y1;
+static int __pyx_pw_10pyMagnetar_8Magnetar_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_10pyMagnetar_8Magnetar_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_x0,&__pyx_n_s_y0,&__pyx_n_s_x1,&__pyx_n_s_y1,0};
-    PyObject* values[4] = {0,0,0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x0)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        case  1:
-        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y0)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 4, 4, 1); __PYX_ERR(0, 12, __pyx_L3_error)
-        }
-        case  2:
-        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_x1)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 4, 4, 2); __PYX_ERR(0, 12, __pyx_L3_error)
-        }
-        case  3:
-        if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_y1)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 4, 4, 3); __PYX_ERR(0, 12, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 12, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
-    }
-    __pyx_v_x0 = __Pyx_PyInt_As_int(values[0]); if (unlikely((__pyx_v_x0 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
-    __pyx_v_y0 = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_y0 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
-    __pyx_v_x1 = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_x1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
-    __pyx_v_y1 = __Pyx_PyInt_As_int(values[3]); if (unlikely((__pyx_v_y1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 12, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("rectangle.PyRectangle.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return -1;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9rectangle_11PyRectangle___cinit__(((struct __pyx_obj_9rectangle_PyRectangle *)__pyx_v_self), __pyx_v_x0, __pyx_v_y0, __pyx_v_x1, __pyx_v_y1);
+  if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
+    __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
+  if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
+  __pyx_r = __pyx_pf_10pyMagnetar_8Magnetar___cinit__(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9rectangle_11PyRectangle___cinit__(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self, int __pyx_v_x0, int __pyx_v_y0, int __pyx_v_x1, int __pyx_v_y1) {
+static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "rectangle.pyx":13
- *     cdef Rectangle *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self, int x0, int y0, int x1, int y1):
- *         self.thisptr = new Rectangle(x0, y0, x1, y1)             # <<<<<<<<<<<<<<
+  /* "pyMagnetar.pyx":9
+ *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
+ *     def __cinit__(self):
+ *         self.thisptr = new cMagnetar()             # <<<<<<<<<<<<<<
  *     def __dealloc__(self):
  *         del self.thisptr
  */
-  __pyx_v_self->thisptr = new shapes::Rectangle(__pyx_v_x0, __pyx_v_y0, __pyx_v_x1, __pyx_v_y1);
+  __pyx_v_self->thisptr = new cMagnetar();
 
-  /* "rectangle.pyx":12
- * cdef class PyRectangle:
- *     cdef Rectangle *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self, int x0, int y0, int x1, int y1):             # <<<<<<<<<<<<<<
- *         self.thisptr = new Rectangle(x0, y0, x1, y1)
+  /* "pyMagnetar.pyx":8
+ * cdef class Magnetar:
+ *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
+ *     def __cinit__(self):             # <<<<<<<<<<<<<<
+ *         self.thisptr = new cMagnetar()
  *     def __dealloc__(self):
  */
 
@@ -760,103 +680,99 @@ static int __pyx_pf_9rectangle_11PyRectangle___cinit__(struct __pyx_obj_9rectang
   return __pyx_r;
 }
 
-/* "rectangle.pyx":14
- *     def __cinit__(self, int x0, int y0, int x1, int y1):
- *         self.thisptr = new Rectangle(x0, y0, x1, y1)
+/* "pyMagnetar.pyx":10
+ *     def __cinit__(self):
+ *         self.thisptr = new cMagnetar()
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         del self.thisptr
- *     def getLength(self):
+ *     def filterTest(self):
  */
 
 /* Python wrapper */
-static void __pyx_pw_9rectangle_11PyRectangle_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
-static void __pyx_pw_9rectangle_11PyRectangle_3__dealloc__(PyObject *__pyx_v_self) {
+static void __pyx_pw_10pyMagnetar_8Magnetar_3__dealloc__(PyObject *__pyx_v_self); /*proto*/
+static void __pyx_pw_10pyMagnetar_8Magnetar_3__dealloc__(PyObject *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__ (wrapper)", 0);
-  __pyx_pf_9rectangle_11PyRectangle_2__dealloc__(((struct __pyx_obj_9rectangle_PyRectangle *)__pyx_v_self));
+  __pyx_pf_10pyMagnetar_8Magnetar_2__dealloc__(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-static void __pyx_pf_9rectangle_11PyRectangle_2__dealloc__(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self) {
+static void __pyx_pf_10pyMagnetar_8Magnetar_2__dealloc__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "rectangle.pyx":15
- *         self.thisptr = new Rectangle(x0, y0, x1, y1)
+  /* "pyMagnetar.pyx":11
+ *         self.thisptr = new cMagnetar()
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
- *     def getLength(self):
- *         return self.thisptr.getLength()
+ *     def filterTest(self):
+ *         return self.thisptr.filterTest()
  */
   delete __pyx_v_self->thisptr;
 
-  /* "rectangle.pyx":14
- *     def __cinit__(self, int x0, int y0, int x1, int y1):
- *         self.thisptr = new Rectangle(x0, y0, x1, y1)
+  /* "pyMagnetar.pyx":10
+ *     def __cinit__(self):
+ *         self.thisptr = new cMagnetar()
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         del self.thisptr
- *     def getLength(self):
+ *     def filterTest(self):
  */
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-/* "rectangle.pyx":16
+/* "pyMagnetar.pyx":12
  *     def __dealloc__(self):
  *         del self.thisptr
- *     def getLength(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getLength()
- *     def getHeight(self):
+ *     def filterTest(self):             # <<<<<<<<<<<<<<
+ *         return self.thisptr.filterTest()
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9rectangle_11PyRectangle_5getLength(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_9rectangle_11PyRectangle_5getLength(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_5filterTest(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_5filterTest(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("getLength (wrapper)", 0);
-  __pyx_r = __pyx_pf_9rectangle_11PyRectangle_4getLength(((struct __pyx_obj_9rectangle_PyRectangle *)__pyx_v_self));
+  __Pyx_RefNannySetupContext("filterTest (wrapper)", 0);
+  __pyx_r = __pyx_pf_10pyMagnetar_8Magnetar_4filterTest(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9rectangle_11PyRectangle_4getLength(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self) {
+static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_4filterTest(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("getLength", 0);
+  __Pyx_RefNannySetupContext("filterTest", 0);
 
-  /* "rectangle.pyx":17
+  /* "pyMagnetar.pyx":13
  *         del self.thisptr
- *     def getLength(self):
- *         return self.thisptr.getLength()             # <<<<<<<<<<<<<<
- *     def getHeight(self):
- *         return self.thisptr.getHeight()
+ *     def filterTest(self):
+ *         return self.thisptr.filterTest()             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getLength()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->filterTest()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "rectangle.pyx":16
+  /* "pyMagnetar.pyx":12
  *     def __dealloc__(self):
  *         del self.thisptr
- *     def getLength(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getLength()
- *     def getHeight(self):
+ *     def filterTest(self):             # <<<<<<<<<<<<<<
+ *         return self.thisptr.filterTest()
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("rectangle.PyRectangle.getLength", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyMagnetar.Magnetar.filterTest", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -864,227 +780,7 @@ static PyObject *__pyx_pf_9rectangle_11PyRectangle_4getLength(struct __pyx_obj_9
   return __pyx_r;
 }
 
-/* "rectangle.pyx":18
- *     def getLength(self):
- *         return self.thisptr.getLength()
- *     def getHeight(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getHeight()
- *     def getArea(self):
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_9rectangle_11PyRectangle_7getHeight(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_9rectangle_11PyRectangle_7getHeight(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("getHeight (wrapper)", 0);
-  __pyx_r = __pyx_pf_9rectangle_11PyRectangle_6getHeight(((struct __pyx_obj_9rectangle_PyRectangle *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_9rectangle_11PyRectangle_6getHeight(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("getHeight", 0);
-
-  /* "rectangle.pyx":19
- *         return self.thisptr.getLength()
- *     def getHeight(self):
- *         return self.thisptr.getHeight()             # <<<<<<<<<<<<<<
- *     def getArea(self):
- *         return self.thisptr.getArea()
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getHeight()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "rectangle.pyx":18
- *     def getLength(self):
- *         return self.thisptr.getLength()
- *     def getHeight(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getHeight()
- *     def getArea(self):
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("rectangle.PyRectangle.getHeight", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "rectangle.pyx":20
- *     def getHeight(self):
- *         return self.thisptr.getHeight()
- *     def getArea(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getArea()
- *     def move(self, dx, dy):
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_9rectangle_11PyRectangle_9getArea(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_9rectangle_11PyRectangle_9getArea(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("getArea (wrapper)", 0);
-  __pyx_r = __pyx_pf_9rectangle_11PyRectangle_8getArea(((struct __pyx_obj_9rectangle_PyRectangle *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_9rectangle_11PyRectangle_8getArea(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("getArea", 0);
-
-  /* "rectangle.pyx":21
- *         return self.thisptr.getHeight()
- *     def getArea(self):
- *         return self.thisptr.getArea()             # <<<<<<<<<<<<<<
- *     def move(self, dx, dy):
- *         self.thisptr.move(dx, dy)
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->getArea()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "rectangle.pyx":20
- *     def getHeight(self):
- *         return self.thisptr.getHeight()
- *     def getArea(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.getArea()
- *     def move(self, dx, dy):
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("rectangle.PyRectangle.getArea", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "rectangle.pyx":22
- *     def getArea(self):
- *         return self.thisptr.getArea()
- *     def move(self, dx, dy):             # <<<<<<<<<<<<<<
- *         self.thisptr.move(dx, dy)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_9rectangle_11PyRectangle_11move(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_9rectangle_11PyRectangle_11move(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_dx = 0;
-  PyObject *__pyx_v_dy = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("move (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_dx,&__pyx_n_s_dy,0};
-    PyObject* values[2] = {0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dx)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        case  1:
-        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_dy)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("move", 1, 2, 2, 1); __PYX_ERR(0, 22, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "move") < 0)) __PYX_ERR(0, 22, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-    }
-    __pyx_v_dx = values[0];
-    __pyx_v_dy = values[1];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("move", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 22, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("rectangle.PyRectangle.move", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9rectangle_11PyRectangle_10move(((struct __pyx_obj_9rectangle_PyRectangle *)__pyx_v_self), __pyx_v_dx, __pyx_v_dy);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_9rectangle_11PyRectangle_10move(struct __pyx_obj_9rectangle_PyRectangle *__pyx_v_self, PyObject *__pyx_v_dx, PyObject *__pyx_v_dy) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  int __pyx_t_2;
-  __Pyx_RefNannySetupContext("move", 0);
-
-  /* "rectangle.pyx":23
- *         return self.thisptr.getArea()
- *     def move(self, dx, dy):
- *         self.thisptr.move(dx, dy)             # <<<<<<<<<<<<<<
- */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_dx); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_dy); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_v_self->thisptr->move(__pyx_t_1, __pyx_t_2);
-
-  /* "rectangle.pyx":22
- *     def getArea(self):
- *         return self.thisptr.getArea()
- *     def move(self, dx, dy):             # <<<<<<<<<<<<<<
- *         self.thisptr.move(dx, dy)
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("rectangle.PyRectangle.move", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_tp_new_9rectangle_PyRectangle(PyTypeObject *t, PyObject *a, PyObject *k) {
+static PyObject *__pyx_tp_new_10pyMagnetar_Magnetar(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -1092,13 +788,13 @@ static PyObject *__pyx_tp_new_9rectangle_PyRectangle(PyTypeObject *t, PyObject *
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_9rectangle_11PyRectangle_1__cinit__(o, a, k) < 0)) {
+  if (unlikely(__pyx_pw_10pyMagnetar_8Magnetar_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) {
     Py_DECREF(o); o = 0;
   }
   return o;
 }
 
-static void __pyx_tp_dealloc_9rectangle_PyRectangle(PyObject *o) {
+static void __pyx_tp_dealloc_10pyMagnetar_Magnetar(PyObject *o) {
   #if PY_VERSION_HEX >= 0x030400a1
   if (unlikely(Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -1108,27 +804,24 @@ static void __pyx_tp_dealloc_9rectangle_PyRectangle(PyObject *o) {
     PyObject *etype, *eval, *etb;
     PyErr_Fetch(&etype, &eval, &etb);
     ++Py_REFCNT(o);
-    __pyx_pw_9rectangle_11PyRectangle_3__dealloc__(o);
+    __pyx_pw_10pyMagnetar_8Magnetar_3__dealloc__(o);
     --Py_REFCNT(o);
     PyErr_Restore(etype, eval, etb);
   }
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyMethodDef __pyx_methods_9rectangle_PyRectangle[] = {
-  {"getLength", (PyCFunction)__pyx_pw_9rectangle_11PyRectangle_5getLength, METH_NOARGS, 0},
-  {"getHeight", (PyCFunction)__pyx_pw_9rectangle_11PyRectangle_7getHeight, METH_NOARGS, 0},
-  {"getArea", (PyCFunction)__pyx_pw_9rectangle_11PyRectangle_9getArea, METH_NOARGS, 0},
-  {"move", (PyCFunction)__pyx_pw_9rectangle_11PyRectangle_11move, METH_VARARGS|METH_KEYWORDS, 0},
+static PyMethodDef __pyx_methods_10pyMagnetar_Magnetar[] = {
+  {"filterTest", (PyCFunction)__pyx_pw_10pyMagnetar_8Magnetar_5filterTest, METH_NOARGS, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_9rectangle_PyRectangle = {
+static PyTypeObject __pyx_type_10pyMagnetar_Magnetar = {
   PyVarObject_HEAD_INIT(0, 0)
-  "rectangle.PyRectangle", /*tp_name*/
-  sizeof(struct __pyx_obj_9rectangle_PyRectangle), /*tp_basicsize*/
+  "pyMagnetar.Magnetar", /*tp_name*/
+  sizeof(struct __pyx_obj_10pyMagnetar_Magnetar), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9rectangle_PyRectangle, /*tp_dealloc*/
+  __pyx_tp_dealloc_10pyMagnetar_Magnetar, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -1156,7 +849,7 @@ static PyTypeObject __pyx_type_9rectangle_PyRectangle = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_9rectangle_PyRectangle, /*tp_methods*/
+  __pyx_methods_10pyMagnetar_Magnetar, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -1166,7 +859,7 @@ static PyTypeObject __pyx_type_9rectangle_PyRectangle = {
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_9rectangle_PyRectangle, /*tp_new*/
+  __pyx_tp_new_10pyMagnetar_Magnetar, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -1192,7 +885,7 @@ static struct PyModuleDef __pyx_moduledef = {
   #else
     PyModuleDef_HEAD_INIT,
   #endif
-    "rectangle",
+    "pyMagnetar",
     0, /* m_doc */
     -1, /* m_size */
     __pyx_methods /* m_methods */,
@@ -1204,14 +897,8 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_n_s_dx, __pyx_k_dx, sizeof(__pyx_k_dx), 0, 0, 1, 1},
-  {&__pyx_n_s_dy, __pyx_k_dy, sizeof(__pyx_k_dy), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
-  {&__pyx_n_s_x0, __pyx_k_x0, sizeof(__pyx_k_x0), 0, 0, 1, 1},
-  {&__pyx_n_s_x1, __pyx_k_x1, sizeof(__pyx_k_x1), 0, 0, 1, 1},
-  {&__pyx_n_s_y0, __pyx_k_y0, sizeof(__pyx_k_y0), 0, 0, 1, 1},
-  {&__pyx_n_s_y1, __pyx_k_y1, sizeof(__pyx_k_y1), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
@@ -1233,11 +920,11 @@ static int __Pyx_InitGlobals(void) {
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC initrectangle(void); /*proto*/
-PyMODINIT_FUNC initrectangle(void)
+PyMODINIT_FUNC initpyMagnetar(void); /*proto*/
+PyMODINIT_FUNC initpyMagnetar(void)
 #else
-PyMODINIT_FUNC PyInit_rectangle(void); /*proto*/
-PyMODINIT_FUNC PyInit_rectangle(void)
+PyMODINIT_FUNC PyInit_pyMagnetar(void); /*proto*/
+PyMODINIT_FUNC PyInit_pyMagnetar(void)
 #endif
 {
   PyObject *__pyx_t_1 = NULL;
@@ -1251,7 +938,7 @@ PyMODINIT_FUNC PyInit_rectangle(void)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_rectangle(void)", 0);
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_pyMagnetar(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -1280,7 +967,7 @@ PyMODINIT_FUNC PyInit_rectangle(void)
   #endif
   /*--- Module creation code ---*/
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("rectangle", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("pyMagnetar", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -1297,14 +984,14 @@ PyMODINIT_FUNC PyInit_rectangle(void)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_rectangle) {
+  if (__pyx_module_is_main_pyMagnetar) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "rectangle")) {
-      if (unlikely(PyDict_SetItemString(modules, "rectangle", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyMagnetar")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyMagnetar", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -1316,10 +1003,10 @@ PyMODINIT_FUNC PyInit_rectangle(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_9rectangle_PyRectangle) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __pyx_type_9rectangle_PyRectangle.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "PyRectangle", (PyObject *)&__pyx_type_9rectangle_PyRectangle) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __pyx_ptype_9rectangle_PyRectangle = &__pyx_type_9rectangle_PyRectangle;
+  if (PyType_Ready(&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_type_10pyMagnetar_Magnetar.tp_print = 0;
+  if (PyObject_SetAttrString(__pyx_m, "Magnetar", (PyObject *)&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_ptype_10pyMagnetar_Magnetar = &__pyx_type_10pyMagnetar_Magnetar;
   /*--- Type import code ---*/
   /*--- Variable import code ---*/
   /*--- Function import code ---*/
@@ -1328,10 +1015,10 @@ PyMODINIT_FUNC PyInit_rectangle(void)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "rectangle.pyx":1
- * cdef extern from "cRectangle.h" namespace "shapes":             # <<<<<<<<<<<<<<
- *     cdef cppclass Rectangle:
- *         Rectangle(int, int, int, int)
+  /* "pyMagnetar.pyx":1
+ * cdef extern from "magnetar.h":             # <<<<<<<<<<<<<<
+ *     cdef cppclass cMagnetar:
+ *         cMagnetar()
  */
   __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -1345,11 +1032,11 @@ PyMODINIT_FUNC PyInit_rectangle(void)
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init rectangle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyMagnetar", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init rectangle");
+    PyErr_SetString(PyExc_ImportError, "init pyMagnetar");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -1404,109 +1091,34 @@ static void __Pyx_RaiseArgtupleInvalid(
                  (num_expected == 1) ? "" : "s", num_found);
 }
 
-/* RaiseDoubleKeywords */
-static void __Pyx_RaiseDoubleKeywordsError(
-    const char* func_name,
-    PyObject* kw_name)
+/* KeywordStringCheck */
+static CYTHON_INLINE int __Pyx_CheckKeywordStrings(
+    PyObject *kwdict,
+    const char* function_name,
+    int kw_allowed)
 {
-    PyErr_Format(PyExc_TypeError,
-        #if PY_MAJOR_VERSION >= 3
-        "%s() got multiple values for keyword argument '%U'", func_name, kw_name);
-        #else
-        "%s() got multiple values for keyword argument '%s'", func_name,
-        PyString_AsString(kw_name));
-        #endif
-}
-
-/* ParseKeywords */
-static int __Pyx_ParseOptionalKeywords(
-    PyObject *kwds,
-    PyObject **argnames[],
-    PyObject *kwds2,
-    PyObject *values[],
-    Py_ssize_t num_pos_args,
-    const char* function_name)
-{
-    PyObject *key = 0, *value = 0;
+    PyObject* key = 0;
     Py_ssize_t pos = 0;
-    PyObject*** name;
-    PyObject*** first_kw_arg = argnames + num_pos_args;
-    while (PyDict_Next(kwds, &pos, &key, &value)) {
-        name = first_kw_arg;
-        while (*name && (**name != key)) name++;
-        if (*name) {
-            values[name-argnames] = value;
-            continue;
-        }
-        name = first_kw_arg;
+#if CYTHON_COMPILING_IN_PYPY
+    if (!kw_allowed && PyDict_Next(kwdict, &pos, &key, 0))
+        goto invalid_keyword;
+    return 1;
+#else
+    while (PyDict_Next(kwdict, &pos, &key, 0)) {
         #if PY_MAJOR_VERSION < 3
-        if (likely(PyString_CheckExact(key)) || likely(PyString_Check(key))) {
-            while (*name) {
-                if ((CYTHON_COMPILING_IN_PYPY || PyString_GET_SIZE(**name) == PyString_GET_SIZE(key))
-                        && _PyString_Eq(**name, key)) {
-                    values[name-argnames] = value;
-                    break;
-                }
-                name++;
-            }
-            if (*name) continue;
-            else {
-                PyObject*** argname = argnames;
-                while (argname != first_kw_arg) {
-                    if ((**argname == key) || (
-                            (CYTHON_COMPILING_IN_PYPY || PyString_GET_SIZE(**argname) == PyString_GET_SIZE(key))
-                             && _PyString_Eq(**argname, key))) {
-                        goto arg_passed_twice;
-                    }
-                    argname++;
-                }
-            }
-        } else
+        if (unlikely(!PyString_CheckExact(key)) && unlikely(!PyString_Check(key)))
         #endif
-        if (likely(PyUnicode_Check(key))) {
-            while (*name) {
-                int cmp = (**name == key) ? 0 :
-                #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION >= 3
-                    (PyUnicode_GET_SIZE(**name) != PyUnicode_GET_SIZE(key)) ? 1 :
-                #endif
-                    PyUnicode_Compare(**name, key);
-                if (cmp < 0 && unlikely(PyErr_Occurred())) goto bad;
-                if (cmp == 0) {
-                    values[name-argnames] = value;
-                    break;
-                }
-                name++;
-            }
-            if (*name) continue;
-            else {
-                PyObject*** argname = argnames;
-                while (argname != first_kw_arg) {
-                    int cmp = (**argname == key) ? 0 :
-                    #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION >= 3
-                        (PyUnicode_GET_SIZE(**argname) != PyUnicode_GET_SIZE(key)) ? 1 :
-                    #endif
-                        PyUnicode_Compare(**argname, key);
-                    if (cmp < 0 && unlikely(PyErr_Occurred())) goto bad;
-                    if (cmp == 0) goto arg_passed_twice;
-                    argname++;
-                }
-            }
-        } else
-            goto invalid_keyword_type;
-        if (kwds2) {
-            if (unlikely(PyDict_SetItem(kwds2, key, value))) goto bad;
-        } else {
-            goto invalid_keyword;
-        }
+            if (unlikely(!PyUnicode_Check(key)))
+                goto invalid_keyword_type;
     }
-    return 0;
-arg_passed_twice:
-    __Pyx_RaiseDoubleKeywordsError(function_name, key);
-    goto bad;
+    if ((!kw_allowed) && unlikely(key))
+        goto invalid_keyword;
+    return 1;
 invalid_keyword_type:
     PyErr_Format(PyExc_TypeError,
         "%.200s() keywords must be strings", function_name);
-    goto bad;
+    return 0;
+#endif
 invalid_keyword:
     PyErr_Format(PyExc_TypeError,
     #if PY_MAJOR_VERSION < 3
@@ -1516,8 +1128,7 @@ invalid_keyword:
         "%s() got an unexpected keyword argument '%U'",
         function_name, key);
     #endif
-bad:
-    return -1;
+    return 0;
 }
 
 /* CodeObjectCache */
@@ -1681,28 +1292,6 @@ bad:
     Py_XDECREF(py_frame);
 }
 
-/* CIntFromPyVerify */
-#define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
-    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
-#define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value)\
-    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
-#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)\
-    {\
-        func_type value = func_value;\
-        if (sizeof(target_type) < sizeof(func_type)) {\
-            if (unlikely(value != (func_type) (target_type) value)) {\
-                func_type zero = 0;\
-                if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))\
-                    return (target_type) -1;\
-                if (is_unsigned && unlikely(value < zero))\
-                    goto raise_neg_overflow;\
-                else\
-                    goto raise_overflow;\
-            }\
-        }\
-        return (target_type) value;\
-    }
-
 /* CIntToPy */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
     const int neg_one = (int) -1, const_zero = (int) 0;
@@ -1728,6 +1317,240 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
         return _PyLong_FromByteArray(bytes, sizeof(int),
                                      little, !is_unsigned);
     }
+}
+
+/* CIntToPy */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
+    const long neg_one = (long) -1, const_zero = (long) 0;
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(long) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(long) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+        }
+    } else {
+        if (sizeof(long) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(long),
+                                     little, !is_unsigned);
+    }
+}
+
+/* CIntFromPyVerify */
+#define __PYX_VERIFY_RETURN_INT(target_type, func_type, func_value)\
+    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 0)
+#define __PYX_VERIFY_RETURN_INT_EXC(target_type, func_type, func_value)\
+    __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, 1)
+#define __PYX__VERIFY_RETURN_INT(target_type, func_type, func_value, exc)\
+    {\
+        func_type value = func_value;\
+        if (sizeof(target_type) < sizeof(func_type)) {\
+            if (unlikely(value != (func_type) (target_type) value)) {\
+                func_type zero = 0;\
+                if (exc && unlikely(value == (func_type)-1 && PyErr_Occurred()))\
+                    return (target_type) -1;\
+                if (is_unsigned && unlikely(value < zero))\
+                    goto raise_neg_overflow;\
+                else\
+                    goto raise_overflow;\
+            }\
+        }\
+        return (target_type) value;\
+    }
+
+/* CIntFromPy */
+static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
+    const long neg_one = (long) -1, const_zero = (long) 0;
+    const int is_unsigned = neg_one > const_zero;
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(long) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(long, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (long) val;
+        }
+    } else
+#endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (long) 0;
+                case  1: __PYX_VERIFY_RETURN_INT(long, digit, digits[0])
+                case 2:
+                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 2 * PyLong_SHIFT) {
+                            return (long) (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 3 * PyLong_SHIFT) {
+                            return (long) (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) >= 4 * PyLong_SHIFT) {
+                            return (long) (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
+                        }
+                    }
+                    break;
+            }
+#endif
+#if CYTHON_COMPILING_IN_CPYTHON
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+#else
+            {
+                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
+                if (unlikely(result < 0))
+                    return (long) -1;
+                if (unlikely(result == 1))
+                    goto raise_neg_overflow;
+            }
+#endif
+            if (sizeof(long) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned long, PyLong_AsUnsignedLong(x))
+            } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+            }
+        } else {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (long) 0;
+                case -1: __PYX_VERIFY_RETURN_INT(long, sdigit, (sdigit) (-(sdigit)digits[0]))
+                case  1: __PYX_VERIFY_RETURN_INT(long,  digit, +digits[0])
+                case -2:
+                    if (8 * sizeof(long) - 1 > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                            return (long) ((((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case -3:
+                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                            return (long) ((((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case -4:
+                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                            return (long) (((long)-1)*(((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                            return (long) ((((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
+                        }
+                    }
+                    break;
+            }
+#endif
+            if (sizeof(long) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, long, PyLong_AsLong(x))
+            } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(long, PY_LONG_LONG, PyLong_AsLongLong(x))
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            long val;
+            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (long) -1;
+        }
+    } else {
+        long val;
+        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
+        if (!tmp) return (long) -1;
+        val = __Pyx_PyInt_As_long(tmp);
+        Py_DECREF(tmp);
+        return val;
+    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to long");
+    return (long) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to long");
+    return (long) -1;
 }
 
 /* CIntFromPy */
@@ -1913,218 +1736,6 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to int");
     return (int) -1;
-}
-
-/* CIntToPy */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value) {
-    const long neg_one = (long) -1, const_zero = (long) 0;
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(long) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(long) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-        } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-        }
-    } else {
-        if (sizeof(long) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(long),
-                                     little, !is_unsigned);
-    }
-}
-
-/* CIntFromPy */
-static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
-    const long neg_one = (long) -1, const_zero = (long) 0;
-    const int is_unsigned = neg_one > const_zero;
-#if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_Check(x))) {
-        if (sizeof(long) < sizeof(long)) {
-            __PYX_VERIFY_RETURN_INT(long, long, PyInt_AS_LONG(x))
-        } else {
-            long val = PyInt_AS_LONG(x);
-            if (is_unsigned && unlikely(val < 0)) {
-                goto raise_neg_overflow;
-            }
-            return (long) val;
-        }
-    } else
-#endif
-    if (likely(PyLong_Check(x))) {
-        if (is_unsigned) {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (long) 0;
-                case  1: __PYX_VERIFY_RETURN_INT(long, digit, digits[0])
-                case 2:
-                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 2 * PyLong_SHIFT) {
-                            return (long) (((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 3 * PyLong_SHIFT) {
-                            return (long) (((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) >= 4 * PyLong_SHIFT) {
-                            return (long) (((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0]));
-                        }
-                    }
-                    break;
-            }
-#endif
-#if CYTHON_COMPILING_IN_CPYTHON
-            if (unlikely(Py_SIZE(x) < 0)) {
-                goto raise_neg_overflow;
-            }
-#else
-            {
-                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
-                if (unlikely(result < 0))
-                    return (long) -1;
-                if (unlikely(result == 1))
-                    goto raise_neg_overflow;
-            }
-#endif
-            if (sizeof(long) <= sizeof(unsigned long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned long, PyLong_AsUnsignedLong(x))
-            } else if (sizeof(long) <= sizeof(unsigned PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
-            }
-        } else {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (long) 0;
-                case -1: __PYX_VERIFY_RETURN_INT(long, sdigit, (sdigit) (-(sdigit)digits[0]))
-                case  1: __PYX_VERIFY_RETURN_INT(long,  digit, +digits[0])
-                case -2:
-                    if (8 * sizeof(long) - 1 > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 2:
-                    if (8 * sizeof(long) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                            return (long) ((((((long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case -3:
-                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(long) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                            return (long) ((((((((long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case -4:
-                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                            return (long) (((long)-1)*(((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(long) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(long, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                            return (long) ((((((((((long)digits[3]) << PyLong_SHIFT) | (long)digits[2]) << PyLong_SHIFT) | (long)digits[1]) << PyLong_SHIFT) | (long)digits[0])));
-                        }
-                    }
-                    break;
-            }
-#endif
-            if (sizeof(long) <= sizeof(long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, long, PyLong_AsLong(x))
-            } else if (sizeof(long) <= sizeof(PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(long, PY_LONG_LONG, PyLong_AsLongLong(x))
-            }
-        }
-        {
-#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
-            PyErr_SetString(PyExc_RuntimeError,
-                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
-#else
-            long val;
-            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
- #if PY_MAJOR_VERSION < 3
-            if (likely(v) && !PyLong_Check(v)) {
-                PyObject *tmp = v;
-                v = PyNumber_Long(tmp);
-                Py_DECREF(tmp);
-            }
- #endif
-            if (likely(v)) {
-                int one = 1; int is_little = (int)*(unsigned char *)&one;
-                unsigned char *bytes = (unsigned char *)&val;
-                int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                              bytes, sizeof(val),
-                                              is_little, !is_unsigned);
-                Py_DECREF(v);
-                if (likely(!ret))
-                    return val;
-            }
-#endif
-            return (long) -1;
-        }
-    } else {
-        long val;
-        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
-        if (!tmp) return (long) -1;
-        val = __Pyx_PyInt_As_long(tmp);
-        Py_DECREF(tmp);
-        return val;
-    }
-raise_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "value too large to convert to long");
-    return (long) -1;
-raise_neg_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "can't convert negative value to long");
-    return (long) -1;
 }
 
 /* CheckBinaryVersion */
