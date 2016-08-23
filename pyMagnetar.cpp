@@ -269,7 +269,13 @@ static CYTHON_INLINE float __PYX_NAN() {
 
 #define __PYX_HAVE__pyMagnetar
 #define __PYX_HAVE_API__pyMagnetar
-#include "magnetar.h"
+#include "string.h"
+#include <string>
+#include "ios"
+#include "new"
+#include "stdexcept"
+#include "typeinfo"
+#include "src/magnetar.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -486,17 +492,18 @@ static const char *__pyx_filename;
 
 static const char *__pyx_f[] = {
   "pyMagnetar.pyx",
+  "stringsource",
 };
 
 /*--- Type declarations ---*/
 struct __pyx_obj_10pyMagnetar_Magnetar;
 
-/* "pyMagnetar.pyx":6
- *         int filterTest()
+/* "pyMagnetar.pyx":8
+ *         int filterTest(string)
  * 
  * cdef class Magnetar:             # <<<<<<<<<<<<<<
  *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self):
+ *     def __cinit__(self, string folderPath):
  */
 struct __pyx_obj_10pyMagnetar_Magnetar {
   PyObject_HEAD
@@ -568,12 +575,17 @@ struct __pyx_obj_10pyMagnetar_Magnetar {
 #define __Pyx_CLEAR(r)    do { PyObject* tmp = ((PyObject*)(r)); r = NULL; __Pyx_DECREF(tmp);} while(0)
 #define __Pyx_XCLEAR(r)   do { if((r) != NULL) {PyObject* tmp = ((PyObject*)(r)); r = NULL; __Pyx_DECREF(tmp);}} while(0)
 
+/* RaiseDoubleKeywords.proto */
+static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
+
+/* ParseKeywords.proto */
+static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
+    PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
+    const char* function_name);
+
 /* RaiseArgTupleInvalid.proto */
 static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
     Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
-
-/* KeywordStringCheck.proto */
-static CYTHON_INLINE int __Pyx_CheckKeywordStrings(PyObject *kwdict, const char* function_name, int kw_allowed);
 
 /* CodeObjectCache.proto */
 typedef struct {
@@ -595,9 +607,6 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
                                int py_line, const char *filename);
 
 /* CIntToPy.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
-
-/* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
 /* CIntFromPy.proto */
@@ -613,64 +622,103 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'libc.string' */
+
+/* Module declarations from 'libcpp.string' */
+
 /* Module declarations from 'pyMagnetar' */
 static PyTypeObject *__pyx_ptype_10pyMagnetar_Magnetar = 0;
+static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*proto*/
 #define __Pyx_MODULE_NAME "pyMagnetar"
 int __pyx_module_is_main_pyMagnetar = 0;
 
 /* Implementation of 'pyMagnetar' */
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_folderPath[] = "folderPath";
+static PyObject *__pyx_n_s_folderPath;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_test;
-static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self); /* proto */
+static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, std::string __pyx_v_folderPath); /* proto */
 static void __pyx_pf_10pyMagnetar_8Magnetar_2__dealloc__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_4filterTest(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self); /* proto */
 static PyObject *__pyx_tp_new_10pyMagnetar_Magnetar(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 
-/* "pyMagnetar.pyx":8
+/* "pyMagnetar.pyx":10
  * cdef class Magnetar:
  *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self):             # <<<<<<<<<<<<<<
- *         self.thisptr = new cMagnetar()
+ *     def __cinit__(self, string folderPath):             # <<<<<<<<<<<<<<
+ *         self.thisptr = new cMagnetar(folderPath)
  *     def __dealloc__(self):
  */
 
 /* Python wrapper */
 static int __pyx_pw_10pyMagnetar_8Magnetar_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_pw_10pyMagnetar_8Magnetar_1__cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  std::string __pyx_v_folderPath;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__ (wrapper)", 0);
-  if (unlikely(PyTuple_GET_SIZE(__pyx_args) > 0)) {
-    __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 0, 0, PyTuple_GET_SIZE(__pyx_args)); return -1;}
-  if (unlikely(__pyx_kwds) && unlikely(PyDict_Size(__pyx_kwds) > 0) && unlikely(!__Pyx_CheckKeywordStrings(__pyx_kwds, "__cinit__", 0))) return -1;
-  __pyx_r = __pyx_pf_10pyMagnetar_8Magnetar___cinit__(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self));
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_folderPath,0};
+    PyObject* values[1] = {0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_folderPath)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 10, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+    }
+    __pyx_v_folderPath = __pyx_convert_string_from_py_std__in_string(values[0]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 10, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pyMagnetar.Magnetar.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return -1;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10pyMagnetar_8Magnetar___cinit__(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self), __pyx_v_folderPath);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self) {
+static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, std::string __pyx_v_folderPath) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "pyMagnetar.pyx":9
+  /* "pyMagnetar.pyx":11
  *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self):
- *         self.thisptr = new cMagnetar()             # <<<<<<<<<<<<<<
+ *     def __cinit__(self, string folderPath):
+ *         self.thisptr = new cMagnetar(folderPath)             # <<<<<<<<<<<<<<
  *     def __dealloc__(self):
  *         del self.thisptr
  */
-  __pyx_v_self->thisptr = new cMagnetar();
+  __pyx_v_self->thisptr = new cMagnetar(__pyx_v_folderPath);
 
-  /* "pyMagnetar.pyx":8
+  /* "pyMagnetar.pyx":10
  * cdef class Magnetar:
  *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self):             # <<<<<<<<<<<<<<
- *         self.thisptr = new cMagnetar()
+ *     def __cinit__(self, string folderPath):             # <<<<<<<<<<<<<<
+ *         self.thisptr = new cMagnetar(folderPath)
  *     def __dealloc__(self):
  */
 
@@ -680,12 +728,11 @@ static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnet
   return __pyx_r;
 }
 
-/* "pyMagnetar.pyx":10
- *     def __cinit__(self):
- *         self.thisptr = new cMagnetar()
+/* "pyMagnetar.pyx":12
+ *     def __cinit__(self, string folderPath):
+ *         self.thisptr = new cMagnetar(folderPath)
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         del self.thisptr
- *     def filterTest(self):
  */
 
 /* Python wrapper */
@@ -703,84 +750,77 @@ static void __pyx_pf_10pyMagnetar_8Magnetar_2__dealloc__(struct __pyx_obj_10pyMa
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "pyMagnetar.pyx":11
- *         self.thisptr = new cMagnetar()
+  /* "pyMagnetar.pyx":13
+ *         self.thisptr = new cMagnetar(folderPath)
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
- *     def filterTest(self):
- *         return self.thisptr.filterTest()
  */
   delete __pyx_v_self->thisptr;
 
-  /* "pyMagnetar.pyx":10
- *     def __cinit__(self):
- *         self.thisptr = new cMagnetar()
+  /* "pyMagnetar.pyx":12
+ *     def __cinit__(self, string folderPath):
+ *         self.thisptr = new cMagnetar(folderPath)
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         del self.thisptr
- *     def filterTest(self):
  */
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pyMagnetar.pyx":12
- *     def __dealloc__(self):
- *         del self.thisptr
- *     def filterTest(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.filterTest()
+/* "string.from_py":13
+ * 
+ * @cname("__pyx_convert_string_from_py_std__in_string")
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef Py_ssize_t length
+ *     cdef char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
  */
 
-/* Python wrapper */
-static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_5filterTest(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_5filterTest(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
+static std::string __pyx_convert_string_from_py_std__in_string(PyObject *__pyx_v_o) {
+  Py_ssize_t __pyx_v_length;
+  char *__pyx_v_data;
+  std::string __pyx_r;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("filterTest (wrapper)", 0);
-  __pyx_r = __pyx_pf_10pyMagnetar_8Magnetar_4filterTest(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self));
+  char *__pyx_t_1;
+  __Pyx_RefNannySetupContext("__pyx_convert_string_from_py_std__in_string", 0);
 
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_4filterTest(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("filterTest", 0);
-
-  /* "pyMagnetar.pyx":13
- *         del self.thisptr
- *     def filterTest(self):
- *         return self.thisptr.filterTest()             # <<<<<<<<<<<<<<
+  /* "string.from_py":15
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:
+ *     cdef Py_ssize_t length
+ *     cdef char* data = __Pyx_PyObject_AsStringAndSize(o, &length)             # <<<<<<<<<<<<<<
+ *     return string(data, length)
+ * 
  */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->thisptr->filterTest()); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_AsStringAndSize(__pyx_v_o, (&__pyx_v_length)); if (unlikely(__pyx_t_1 == NULL)) __PYX_ERR(1, 15, __pyx_L1_error)
+  __pyx_v_data = __pyx_t_1;
+
+  /* "string.from_py":16
+ *     cdef Py_ssize_t length
+ *     cdef char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ *     return string(data, length)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = std::string(__pyx_v_data, __pyx_v_length);
   goto __pyx_L0;
 
-  /* "pyMagnetar.pyx":12
- *     def __dealloc__(self):
- *         del self.thisptr
- *     def filterTest(self):             # <<<<<<<<<<<<<<
- *         return self.thisptr.filterTest()
+  /* "string.from_py":13
+ * 
+ * @cname("__pyx_convert_string_from_py_std__in_string")
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef Py_ssize_t length
+ *     cdef char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
  */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pyMagnetar.Magnetar.filterTest", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
+  __Pyx_AddTraceback("string.from_py.__pyx_convert_string_from_py_std__in_string", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_10pyMagnetar_Magnetar(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_10pyMagnetar_Magnetar(PyTypeObject *t, PyObject *a, PyObject *k) {
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -788,7 +828,7 @@ static PyObject *__pyx_tp_new_10pyMagnetar_Magnetar(PyTypeObject *t, CYTHON_UNUS
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  if (unlikely(__pyx_pw_10pyMagnetar_8Magnetar_1__cinit__(o, __pyx_empty_tuple, NULL) < 0)) {
+  if (unlikely(__pyx_pw_10pyMagnetar_8Magnetar_1__cinit__(o, a, k) < 0)) {
     Py_DECREF(o); o = 0;
   }
   return o;
@@ -812,7 +852,6 @@ static void __pyx_tp_dealloc_10pyMagnetar_Magnetar(PyObject *o) {
 }
 
 static PyMethodDef __pyx_methods_10pyMagnetar_Magnetar[] = {
-  {"filterTest", (PyCFunction)__pyx_pw_10pyMagnetar_8Magnetar_5filterTest, METH_NOARGS, 0},
   {0, 0, 0, 0}
 };
 
@@ -897,6 +936,7 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
+  {&__pyx_n_s_folderPath, __pyx_k_folderPath, sizeof(__pyx_k_folderPath), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
@@ -1003,9 +1043,9 @@ PyMODINIT_FUNC PyInit_pyMagnetar(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __pyx_type_10pyMagnetar_Magnetar.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Magnetar", (PyObject *)&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "Magnetar", (PyObject *)&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __pyx_ptype_10pyMagnetar_Magnetar = &__pyx_type_10pyMagnetar_Magnetar;
   /*--- Type import code ---*/
   /*--- Variable import code ---*/
@@ -1016,14 +1056,22 @@ PyMODINIT_FUNC PyInit_pyMagnetar(void)
   #endif
 
   /* "pyMagnetar.pyx":1
- * cdef extern from "magnetar.h":             # <<<<<<<<<<<<<<
- *     cdef cppclass cMagnetar:
- *         cMagnetar()
+ * from libcpp.string cimport string             # <<<<<<<<<<<<<<
+ * 
+ * cdef extern from "src/magnetar.h":
  */
   __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "string.from_py":13
+ * 
+ * @cname("__pyx_convert_string_from_py_std__in_string")
+ * cdef string __pyx_convert_string_from_py_std__in_string(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef Py_ssize_t length
+ *     cdef char* data = __Pyx_PyObject_AsStringAndSize(o, &length)
+ */
 
   /*--- Wrapped vars code ---*/
 
@@ -1065,6 +1113,122 @@ end:
 }
 #endif
 
+/* RaiseDoubleKeywords */
+static void __Pyx_RaiseDoubleKeywordsError(
+    const char* func_name,
+    PyObject* kw_name)
+{
+    PyErr_Format(PyExc_TypeError,
+        #if PY_MAJOR_VERSION >= 3
+        "%s() got multiple values for keyword argument '%U'", func_name, kw_name);
+        #else
+        "%s() got multiple values for keyword argument '%s'", func_name,
+        PyString_AsString(kw_name));
+        #endif
+}
+
+/* ParseKeywords */
+static int __Pyx_ParseOptionalKeywords(
+    PyObject *kwds,
+    PyObject **argnames[],
+    PyObject *kwds2,
+    PyObject *values[],
+    Py_ssize_t num_pos_args,
+    const char* function_name)
+{
+    PyObject *key = 0, *value = 0;
+    Py_ssize_t pos = 0;
+    PyObject*** name;
+    PyObject*** first_kw_arg = argnames + num_pos_args;
+    while (PyDict_Next(kwds, &pos, &key, &value)) {
+        name = first_kw_arg;
+        while (*name && (**name != key)) name++;
+        if (*name) {
+            values[name-argnames] = value;
+            continue;
+        }
+        name = first_kw_arg;
+        #if PY_MAJOR_VERSION < 3
+        if (likely(PyString_CheckExact(key)) || likely(PyString_Check(key))) {
+            while (*name) {
+                if ((CYTHON_COMPILING_IN_PYPY || PyString_GET_SIZE(**name) == PyString_GET_SIZE(key))
+                        && _PyString_Eq(**name, key)) {
+                    values[name-argnames] = value;
+                    break;
+                }
+                name++;
+            }
+            if (*name) continue;
+            else {
+                PyObject*** argname = argnames;
+                while (argname != first_kw_arg) {
+                    if ((**argname == key) || (
+                            (CYTHON_COMPILING_IN_PYPY || PyString_GET_SIZE(**argname) == PyString_GET_SIZE(key))
+                             && _PyString_Eq(**argname, key))) {
+                        goto arg_passed_twice;
+                    }
+                    argname++;
+                }
+            }
+        } else
+        #endif
+        if (likely(PyUnicode_Check(key))) {
+            while (*name) {
+                int cmp = (**name == key) ? 0 :
+                #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION >= 3
+                    (PyUnicode_GET_SIZE(**name) != PyUnicode_GET_SIZE(key)) ? 1 :
+                #endif
+                    PyUnicode_Compare(**name, key);
+                if (cmp < 0 && unlikely(PyErr_Occurred())) goto bad;
+                if (cmp == 0) {
+                    values[name-argnames] = value;
+                    break;
+                }
+                name++;
+            }
+            if (*name) continue;
+            else {
+                PyObject*** argname = argnames;
+                while (argname != first_kw_arg) {
+                    int cmp = (**argname == key) ? 0 :
+                    #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION >= 3
+                        (PyUnicode_GET_SIZE(**argname) != PyUnicode_GET_SIZE(key)) ? 1 :
+                    #endif
+                        PyUnicode_Compare(**argname, key);
+                    if (cmp < 0 && unlikely(PyErr_Occurred())) goto bad;
+                    if (cmp == 0) goto arg_passed_twice;
+                    argname++;
+                }
+            }
+        } else
+            goto invalid_keyword_type;
+        if (kwds2) {
+            if (unlikely(PyDict_SetItem(kwds2, key, value))) goto bad;
+        } else {
+            goto invalid_keyword;
+        }
+    }
+    return 0;
+arg_passed_twice:
+    __Pyx_RaiseDoubleKeywordsError(function_name, key);
+    goto bad;
+invalid_keyword_type:
+    PyErr_Format(PyExc_TypeError,
+        "%.200s() keywords must be strings", function_name);
+    goto bad;
+invalid_keyword:
+    PyErr_Format(PyExc_TypeError,
+    #if PY_MAJOR_VERSION < 3
+        "%.200s() got an unexpected keyword argument '%.200s'",
+        function_name, PyString_AsString(key));
+    #else
+        "%s() got an unexpected keyword argument '%U'",
+        function_name, key);
+    #endif
+bad:
+    return -1;
+}
+
 /* RaiseArgTupleInvalid */
 static void __Pyx_RaiseArgtupleInvalid(
     const char* func_name,
@@ -1089,46 +1253,6 @@ static void __Pyx_RaiseArgtupleInvalid(
                  "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
                  func_name, more_or_less, num_expected,
                  (num_expected == 1) ? "" : "s", num_found);
-}
-
-/* KeywordStringCheck */
-static CYTHON_INLINE int __Pyx_CheckKeywordStrings(
-    PyObject *kwdict,
-    const char* function_name,
-    int kw_allowed)
-{
-    PyObject* key = 0;
-    Py_ssize_t pos = 0;
-#if CYTHON_COMPILING_IN_PYPY
-    if (!kw_allowed && PyDict_Next(kwdict, &pos, &key, 0))
-        goto invalid_keyword;
-    return 1;
-#else
-    while (PyDict_Next(kwdict, &pos, &key, 0)) {
-        #if PY_MAJOR_VERSION < 3
-        if (unlikely(!PyString_CheckExact(key)) && unlikely(!PyString_Check(key)))
-        #endif
-            if (unlikely(!PyUnicode_Check(key)))
-                goto invalid_keyword_type;
-    }
-    if ((!kw_allowed) && unlikely(key))
-        goto invalid_keyword;
-    return 1;
-invalid_keyword_type:
-    PyErr_Format(PyExc_TypeError,
-        "%.200s() keywords must be strings", function_name);
-    return 0;
-#endif
-invalid_keyword:
-    PyErr_Format(PyExc_TypeError,
-    #if PY_MAJOR_VERSION < 3
-        "%.200s() got an unexpected keyword argument '%.200s'",
-        function_name, PyString_AsString(key));
-    #else
-        "%s() got an unexpected keyword argument '%U'",
-        function_name, key);
-    #endif
-    return 0;
 }
 
 /* CodeObjectCache */
@@ -1290,33 +1414,6 @@ static void __Pyx_AddTraceback(const char *funcname, int c_line,
 bad:
     Py_XDECREF(py_code);
     Py_XDECREF(py_frame);
-}
-
-/* CIntToPy */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
-    const int neg_one = (int) -1, const_zero = (int) 0;
-    const int is_unsigned = neg_one > const_zero;
-    if (is_unsigned) {
-        if (sizeof(int) < sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(int) <= sizeof(unsigned long)) {
-            return PyLong_FromUnsignedLong((unsigned long) value);
-        } else if (sizeof(int) <= sizeof(unsigned PY_LONG_LONG)) {
-            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
-        }
-    } else {
-        if (sizeof(int) <= sizeof(long)) {
-            return PyInt_FromLong((long) value);
-        } else if (sizeof(int) <= sizeof(PY_LONG_LONG)) {
-            return PyLong_FromLongLong((PY_LONG_LONG) value);
-        }
-    }
-    {
-        int one = 1; int little = (int)*(unsigned char *)&one;
-        unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(int),
-                                     little, !is_unsigned);
-    }
 }
 
 /* CIntToPy */

@@ -4,8 +4,8 @@ from Cython.Distutils import build_ext
 
 ext = Extension(
     name = "pyMagnetar",
-    sources = ["pyMagnetar.pyx", "magnetar.cpp", "utils.cpp", "Filters.cpp"],
-    include_dirs = ["./", "./vmath"],
+    sources = ["pyMagnetar.pyx", "src/magnetar.cpp", "src/utils.cpp", "src/Filters.cpp", "src/Cosmology.cpp"],
+    include_dirs = ["./", "src" "src/vmath"],
     language = "c++",
     extra_compile_args = ["-std=c++11"],
     extra_link_args = ["-std=c++11"]

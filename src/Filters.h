@@ -1,5 +1,5 @@
-#ifndef SLAP_CORE_FILTERS_H_
-#define SLAP_CORE_FILTERS_H_
+#ifndef PYMAGNETAR_FILTERS_H_
+#define PYMAGNETAR_FILTERS_H_
 
 #include <vector>
 #include <map>
