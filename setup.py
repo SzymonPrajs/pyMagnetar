@@ -13,7 +13,7 @@ ext = Extension(
     name = "pyMagnetar",
     sources = ["pyMagnetar.pyx", "src/magnetar.cpp", "src/utils.cpp", "src/Filters.cpp", "src/Cosmology.cpp"],
     include_dirs = ["./", "src" "src/vmath"],
-    libraries = ['gsl'],
+    libraries = ['gsl', 'cblas'],
     language = "c++",
     extra_compile_args = ["-std=c++11"],
     extra_link_args = ["-std=c++11"]
