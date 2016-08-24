@@ -641,11 +641,11 @@ static const char __pyx_k_z[] = "z";
 static const char __pyx_k_tau[] = "tau";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_PTF_R[] = "PTF_R";
+static const char __pyx_k_PTF48_R[] = "PTF48_R";
 static const char __pyx_k_folderPath[] = "folderPath";
 static PyObject *__pyx_n_s_B;
 static PyObject *__pyx_n_s_P;
-static PyObject *__pyx_n_b_PTF_R;
+static PyObject *__pyx_n_b_PTF48_R;
 static PyObject *__pyx_n_s_f;
 static PyObject *__pyx_n_s_folderPath;
 static PyObject *__pyx_n_s_main;
@@ -1011,7 +1011,7 @@ static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_6flux(struct __pyx_obj_10pyMagn
  *         return self.thisptr.flux(t, f)
  * 
  *     def fluxPTF_R(self, double t):             # <<<<<<<<<<<<<<
- *         return self.thisptr.flux(t, "PTF_R")
+ *         return self.thisptr.flux(t, "PTF48_R")
  */
 
 /* Python wrapper */
@@ -1047,10 +1047,10 @@ static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_8fluxPTF_R(struct __pyx_obj_10p
   /* "pyMagnetar.pyx":25
  * 
  *     def fluxPTF_R(self, double t):
- *         return self.thisptr.flux(t, "PTF_R")             # <<<<<<<<<<<<<<
+ *         return self.thisptr.flux(t, "PTF48_R")             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_n_b_PTF_R); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_n_b_PTF48_R); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
   __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->flux(__pyx_v_t, __pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
@@ -1061,7 +1061,7 @@ static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_8fluxPTF_R(struct __pyx_obj_10p
  *         return self.thisptr.flux(t, f)
  * 
  *     def fluxPTF_R(self, double t):             # <<<<<<<<<<<<<<
- *         return self.thisptr.flux(t, "PTF_R")
+ *         return self.thisptr.flux(t, "PTF48_R")
  */
 
   /* function exit code */
@@ -1248,7 +1248,7 @@ static struct PyModuleDef __pyx_moduledef = {
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_B, __pyx_k_B, sizeof(__pyx_k_B), 0, 0, 1, 1},
   {&__pyx_n_s_P, __pyx_k_P, sizeof(__pyx_k_P), 0, 0, 1, 1},
-  {&__pyx_n_b_PTF_R, __pyx_k_PTF_R, sizeof(__pyx_k_PTF_R), 0, 0, 0, 1},
+  {&__pyx_n_b_PTF48_R, __pyx_k_PTF48_R, sizeof(__pyx_k_PTF48_R), 0, 0, 0, 1},
   {&__pyx_n_s_f, __pyx_k_f, sizeof(__pyx_k_f), 0, 0, 1, 1},
   {&__pyx_n_s_folderPath, __pyx_k_folderPath, sizeof(__pyx_k_folderPath), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},

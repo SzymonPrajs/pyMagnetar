@@ -77,12 +77,8 @@ double cMagnetar::_lumSN(double t) {
         return 0;
     }
 
-    if(gsl_integration_qags(&F, 0, t, 1e39, 1e-7, 10000, w, &integ, &error)) {
-        res *= integ;
-    } else {
-        res = 0;
-    }
-
+    gsl_integration_qags(&F, 0, t, 1e39, 1e-7, 10000, w, &integ, &error);
+    res *= integ;
 
     gsl_integration_workspace_free (w);
     return res;

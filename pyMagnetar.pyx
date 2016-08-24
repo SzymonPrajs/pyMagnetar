@@ -22,4 +22,4 @@ cdef class Magnetar:
         return self.thisptr.flux(t, f)
 
     def fluxPTF_R(self, double t):
-        return self.thisptr.flux(t, "PTF_R")
+        return self.thisptr.flux(t, "PTF48_R")
