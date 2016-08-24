@@ -37,7 +37,7 @@ double Cosmology::E(double z1) {
 double Cosmology::findComDis(double z) {
     vector<double> steps(10000);
 
-    for (int i = 0; i <= 10000; ++i) {
+    for (size_t i = 0; i <= 10000; ++i) {
         steps[i] = E(z * i / 10000.0);
     }
 
@@ -58,10 +58,10 @@ double Cosmology::findComVol(double z) {
 
 
 vector<double> Cosmology::findDZ(double step) {
-    int dzSize = int(z_/step);
+    size_t dzSize = int(z_/step);
     vector<double> res(dzSize);
 
-    for (int i = 0; i < dzSize; ++i) {
+    for (size_t i = 0; i < dzSize; ++i) {
         res[i] = (i + 1) * step;
     }
 
@@ -70,11 +70,11 @@ vector<double> Cosmology::findDZ(double step) {
 
 
 vector<double> Cosmology::findDV(vector<double> &dz) {
-    int dzSize = dz.size();
+    size_t dzSize = dz.size();
     vector<double> res(dzSize);
 
     res[0] = findComVol(dz[1]);
-    for (int i = 1; i < dzSize; ++i) {
+    for (size_t i = 1; i < dzSize; ++i) {
         res[i] = findComVol(dz[i]) - findComVol(dz[i-1]);
     }
 

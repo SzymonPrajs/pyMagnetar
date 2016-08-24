@@ -498,12 +498,12 @@ static const char *__pyx_f[] = {
 /*--- Type declarations ---*/
 struct __pyx_obj_10pyMagnetar_Magnetar;
 
-/* "pyMagnetar.pyx":8
- *         int filterTest(string)
+/* "pyMagnetar.pyx":9
+ *         float flux(double, string)
  * 
  * cdef class Magnetar:             # <<<<<<<<<<<<<<
  *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
- *     def __cinit__(self, string folderPath):
+ * 
  */
 struct __pyx_obj_10pyMagnetar_Magnetar {
   PyObject_HEAD
@@ -633,22 +633,39 @@ static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*pr
 int __pyx_module_is_main_pyMagnetar = 0;
 
 /* Implementation of 'pyMagnetar' */
+static const char __pyx_k_B[] = "B";
+static const char __pyx_k_P[] = "P";
+static const char __pyx_k_f[] = "f";
+static const char __pyx_k_t[] = "t";
+static const char __pyx_k_z[] = "z";
+static const char __pyx_k_tau[] = "tau";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_PTF_R[] = "PTF_R";
 static const char __pyx_k_folderPath[] = "folderPath";
+static PyObject *__pyx_n_s_B;
+static PyObject *__pyx_n_s_P;
+static PyObject *__pyx_n_b_PTF_R;
+static PyObject *__pyx_n_s_f;
 static PyObject *__pyx_n_s_folderPath;
 static PyObject *__pyx_n_s_main;
+static PyObject *__pyx_n_s_t;
+static PyObject *__pyx_n_s_tau;
 static PyObject *__pyx_n_s_test;
+static PyObject *__pyx_n_s_z;
 static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, std::string __pyx_v_folderPath); /* proto */
 static void __pyx_pf_10pyMagnetar_8Magnetar_2__dealloc__(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_4setup(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, double __pyx_v_tau, double __pyx_v_B, double __pyx_v_P, double __pyx_v_z); /* proto */
+static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_6flux(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, double __pyx_v_t, std::string __pyx_v_f); /* proto */
+static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_8fluxPTF_R(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, double __pyx_v_t); /* proto */
 static PyObject *__pyx_tp_new_10pyMagnetar_Magnetar(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 
-/* "pyMagnetar.pyx":10
- * cdef class Magnetar:
+/* "pyMagnetar.pyx":12
  *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
+ * 
  *     def __cinit__(self, string folderPath):             # <<<<<<<<<<<<<<
  *         self.thisptr = new cMagnetar(folderPath)
- *     def __dealloc__(self):
+ * 
  */
 
 /* Python wrapper */
@@ -676,18 +693,18 @@ static int __pyx_pw_10pyMagnetar_8Magnetar_1__cinit__(PyObject *__pyx_v_self, Py
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 10, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__cinit__") < 0)) __PYX_ERR(0, 12, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
     }
-    __pyx_v_folderPath = __pyx_convert_string_from_py_std__in_string(values[0]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 10, __pyx_L3_error)
+    __pyx_v_folderPath = __pyx_convert_string_from_py_std__in_string(values[0]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 10, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__cinit__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 12, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyMagnetar.Magnetar.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -705,21 +722,21 @@ static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnet
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__cinit__", 0);
 
-  /* "pyMagnetar.pyx":11
- *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
+  /* "pyMagnetar.pyx":13
+ * 
  *     def __cinit__(self, string folderPath):
  *         self.thisptr = new cMagnetar(folderPath)             # <<<<<<<<<<<<<<
+ * 
  *     def __dealloc__(self):
- *         del self.thisptr
  */
   __pyx_v_self->thisptr = new cMagnetar(__pyx_v_folderPath);
 
-  /* "pyMagnetar.pyx":10
- * cdef class Magnetar:
+  /* "pyMagnetar.pyx":12
  *     cdef cMagnetar *thisptr      # hold a C++ instance which we're wrapping
+ * 
  *     def __cinit__(self, string folderPath):             # <<<<<<<<<<<<<<
  *         self.thisptr = new cMagnetar(folderPath)
- *     def __dealloc__(self):
+ * 
  */
 
   /* function exit code */
@@ -728,11 +745,12 @@ static int __pyx_pf_10pyMagnetar_8Magnetar___cinit__(struct __pyx_obj_10pyMagnet
   return __pyx_r;
 }
 
-/* "pyMagnetar.pyx":12
- *     def __cinit__(self, string folderPath):
+/* "pyMagnetar.pyx":15
  *         self.thisptr = new cMagnetar(folderPath)
+ * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         del self.thisptr
+ * 
  */
 
 /* Python wrapper */
@@ -750,22 +768,311 @@ static void __pyx_pf_10pyMagnetar_8Magnetar_2__dealloc__(struct __pyx_obj_10pyMa
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dealloc__", 0);
 
-  /* "pyMagnetar.pyx":13
- *         self.thisptr = new cMagnetar(folderPath)
+  /* "pyMagnetar.pyx":16
+ * 
  *     def __dealloc__(self):
  *         del self.thisptr             # <<<<<<<<<<<<<<
+ * 
+ *     def setup(self, double tau, double B, double P, double z):
  */
   delete __pyx_v_self->thisptr;
 
-  /* "pyMagnetar.pyx":12
- *     def __cinit__(self, string folderPath):
+  /* "pyMagnetar.pyx":15
  *         self.thisptr = new cMagnetar(folderPath)
+ * 
  *     def __dealloc__(self):             # <<<<<<<<<<<<<<
  *         del self.thisptr
+ * 
  */
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
+}
+
+/* "pyMagnetar.pyx":18
+ *         del self.thisptr
+ * 
+ *     def setup(self, double tau, double B, double P, double z):             # <<<<<<<<<<<<<<
+ *         self.thisptr.setup(tau, B, P, z)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_5setup(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_5setup(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  double __pyx_v_tau;
+  double __pyx_v_B;
+  double __pyx_v_P;
+  double __pyx_v_z;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("setup (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_tau,&__pyx_n_s_B,&__pyx_n_s_P,&__pyx_n_s_z,0};
+    PyObject* values[4] = {0,0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_tau)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_B)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("setup", 1, 4, 4, 1); __PYX_ERR(0, 18, __pyx_L3_error)
+        }
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_P)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("setup", 1, 4, 4, 2); __PYX_ERR(0, 18, __pyx_L3_error)
+        }
+        case  3:
+        if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_z)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("setup", 1, 4, 4, 3); __PYX_ERR(0, 18, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "setup") < 0)) __PYX_ERR(0, 18, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+      values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+    }
+    __pyx_v_tau = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_tau == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 18, __pyx_L3_error)
+    __pyx_v_B = __pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_B == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 18, __pyx_L3_error)
+    __pyx_v_P = __pyx_PyFloat_AsDouble(values[2]); if (unlikely((__pyx_v_P == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 18, __pyx_L3_error)
+    __pyx_v_z = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_z == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 18, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("setup", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 18, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pyMagnetar.Magnetar.setup", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10pyMagnetar_8Magnetar_4setup(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self), __pyx_v_tau, __pyx_v_B, __pyx_v_P, __pyx_v_z);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_4setup(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, double __pyx_v_tau, double __pyx_v_B, double __pyx_v_P, double __pyx_v_z) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("setup", 0);
+
+  /* "pyMagnetar.pyx":19
+ * 
+ *     def setup(self, double tau, double B, double P, double z):
+ *         self.thisptr.setup(tau, B, P, z)             # <<<<<<<<<<<<<<
+ * 
+ *     def flux(self, double t, string f):
+ */
+  __pyx_v_self->thisptr->setup(__pyx_v_tau, __pyx_v_B, __pyx_v_P, __pyx_v_z);
+
+  /* "pyMagnetar.pyx":18
+ *         del self.thisptr
+ * 
+ *     def setup(self, double tau, double B, double P, double z):             # <<<<<<<<<<<<<<
+ *         self.thisptr.setup(tau, B, P, z)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "pyMagnetar.pyx":21
+ *         self.thisptr.setup(tau, B, P, z)
+ * 
+ *     def flux(self, double t, string f):             # <<<<<<<<<<<<<<
+ *         return self.thisptr.flux(t, f)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_7flux(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_7flux(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  double __pyx_v_t;
+  std::string __pyx_v_f;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("flux (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_t,&__pyx_n_s_f,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_f)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("flux", 1, 2, 2, 1); __PYX_ERR(0, 21, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "flux") < 0)) __PYX_ERR(0, 21, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_t = __pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 21, __pyx_L3_error)
+    __pyx_v_f = __pyx_convert_string_from_py_std__in_string(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 21, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("flux", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 21, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pyMagnetar.Magnetar.flux", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10pyMagnetar_8Magnetar_6flux(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self), __pyx_v_t, __pyx_v_f);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_6flux(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, double __pyx_v_t, std::string __pyx_v_f) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("flux", 0);
+
+  /* "pyMagnetar.pyx":22
+ * 
+ *     def flux(self, double t, string f):
+ *         return self.thisptr.flux(t, f)             # <<<<<<<<<<<<<<
+ * 
+ *     def fluxPTF_R(self, double t):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_self->thisptr->flux(__pyx_v_t, __pyx_v_f)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "pyMagnetar.pyx":21
+ *         self.thisptr.setup(tau, B, P, z)
+ * 
+ *     def flux(self, double t, string f):             # <<<<<<<<<<<<<<
+ *         return self.thisptr.flux(t, f)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("pyMagnetar.Magnetar.flux", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "pyMagnetar.pyx":24
+ *         return self.thisptr.flux(t, f)
+ * 
+ *     def fluxPTF_R(self, double t):             # <<<<<<<<<<<<<<
+ *         return self.thisptr.flux(t, "PTF_R")
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_9fluxPTF_R(PyObject *__pyx_v_self, PyObject *__pyx_arg_t); /*proto*/
+static PyObject *__pyx_pw_10pyMagnetar_8Magnetar_9fluxPTF_R(PyObject *__pyx_v_self, PyObject *__pyx_arg_t) {
+  double __pyx_v_t;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("fluxPTF_R (wrapper)", 0);
+  assert(__pyx_arg_t); {
+    __pyx_v_t = __pyx_PyFloat_AsDouble(__pyx_arg_t); if (unlikely((__pyx_v_t == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("pyMagnetar.Magnetar.fluxPTF_R", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10pyMagnetar_8Magnetar_8fluxPTF_R(((struct __pyx_obj_10pyMagnetar_Magnetar *)__pyx_v_self), ((double)__pyx_v_t));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10pyMagnetar_8Magnetar_8fluxPTF_R(struct __pyx_obj_10pyMagnetar_Magnetar *__pyx_v_self, double __pyx_v_t) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  std::string __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  __Pyx_RefNannySetupContext("fluxPTF_R", 0);
+
+  /* "pyMagnetar.pyx":25
+ * 
+ *     def fluxPTF_R(self, double t):
+ *         return self.thisptr.flux(t, "PTF_R")             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_n_b_PTF_R); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_self->thisptr->flux(__pyx_v_t, __pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* "pyMagnetar.pyx":24
+ *         return self.thisptr.flux(t, f)
+ * 
+ *     def fluxPTF_R(self, double t):             # <<<<<<<<<<<<<<
+ *         return self.thisptr.flux(t, "PTF_R")
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("pyMagnetar.Magnetar.fluxPTF_R", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
 }
 
 /* "string.from_py":13
@@ -852,6 +1159,9 @@ static void __pyx_tp_dealloc_10pyMagnetar_Magnetar(PyObject *o) {
 }
 
 static PyMethodDef __pyx_methods_10pyMagnetar_Magnetar[] = {
+  {"setup", (PyCFunction)__pyx_pw_10pyMagnetar_8Magnetar_5setup, METH_VARARGS|METH_KEYWORDS, 0},
+  {"flux", (PyCFunction)__pyx_pw_10pyMagnetar_8Magnetar_7flux, METH_VARARGS|METH_KEYWORDS, 0},
+  {"fluxPTF_R", (PyCFunction)__pyx_pw_10pyMagnetar_8Magnetar_9fluxPTF_R, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -936,9 +1246,16 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
+  {&__pyx_n_s_B, __pyx_k_B, sizeof(__pyx_k_B), 0, 0, 1, 1},
+  {&__pyx_n_s_P, __pyx_k_P, sizeof(__pyx_k_P), 0, 0, 1, 1},
+  {&__pyx_n_b_PTF_R, __pyx_k_PTF_R, sizeof(__pyx_k_PTF_R), 0, 0, 0, 1},
+  {&__pyx_n_s_f, __pyx_k_f, sizeof(__pyx_k_f), 0, 0, 1, 1},
   {&__pyx_n_s_folderPath, __pyx_k_folderPath, sizeof(__pyx_k_folderPath), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
+  {&__pyx_n_s_t, __pyx_k_t, sizeof(__pyx_k_t), 0, 0, 1, 1},
+  {&__pyx_n_s_tau, __pyx_k_tau, sizeof(__pyx_k_tau), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
+  {&__pyx_n_s_z, __pyx_k_z, sizeof(__pyx_k_z), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
@@ -1043,9 +1360,9 @@ PyMODINIT_FUNC PyInit_pyMagnetar(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __pyx_type_10pyMagnetar_Magnetar.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "Magnetar", (PyObject *)&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "Magnetar", (PyObject *)&__pyx_type_10pyMagnetar_Magnetar) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __pyx_ptype_10pyMagnetar_Magnetar = &__pyx_type_10pyMagnetar_Magnetar;
   /*--- Type import code ---*/
   /*--- Variable import code ---*/

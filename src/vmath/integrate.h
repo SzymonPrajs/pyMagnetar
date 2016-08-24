@@ -32,7 +32,7 @@ namespace vmath {  // NAMESPACE vmath
 template <typename T>
 T trapz(const vector <T> &vec, T width) {
     T res = 0;
-    for (int i = 0; i < (vec.size() - 1); ++i) {
+    for (size_t i = 0; i < (vec.size() - 1); ++i) {
         res += (vec[i] * width) + (0.5 * (vec[i+1] - vec[i]) * width);
     }
     return res;

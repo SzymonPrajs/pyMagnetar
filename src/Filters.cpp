@@ -13,7 +13,7 @@ void Filters::readFolder() {
     vector<string> list = loadtxt<string>(folderPath_ + "/list.txt", 1)[0];
 
     vector<string> temp;
-    for (int i = 0; i < list.size(); ++i) {
+    for (size_t i = 0; i < list.size(); ++i) {
         fileList_.push_back(list[i]);
         split(list[i],'.',temp);
 
@@ -50,7 +50,7 @@ void Filters::loadFilter(int ID) {
     filter.centralWavelength_ = trapz<double>(mult<double>(data[1], data[0]), data[0][1] - data[0][0]) / filter.area_;
     filter.min_ = -1;
     filter.max_ = -1;
-    for (int i = 1; i < (filter.bandpass_.size() - 1); i++) {
+    for (size_t i = 1; i < (filter.bandpass_.size() - 1); i++) {
         if (filter.bandpass_[i] != 0 and filter.min_ == -1) {
             filter.min_ = filter.wavelength_[i-1];
         }
@@ -65,7 +65,7 @@ void Filters::loadFilter(int ID) {
 
 
 void Filters::rescale(const vector<double> &wavelength) {
-    for (int i = 0; i < filters_.size(); ++i) {
+    for (size_t i = 0; i < filters_.size(); ++i) {
         filters_[i].wavelength_ = wavelength;
         filters_[i].bandpass_ = interp<double>(wavelength,filters_[i].inputWavelength_,filters_[i].inputBandpass_);
     }
@@ -74,7 +74,7 @@ void Filters::rescale(const vector<double> &wavelength) {
 
 void Filters::rescale(double start, double end, double step) {
     vector<double> wavelength = range<double>(start, end, step);
-    for (int i = 0; i < filters_.size(); ++i) {
+    for (size_t i = 0; i < filters_.size(); ++i) {
         filters_[i].wavelength_ = wavelength;
         filters_[i].bandpass_ = interp<double>(wavelength,filters_[i].inputWavelength_,filters_[i].inputBandpass_);
     }
@@ -82,7 +82,7 @@ void Filters::rescale(double start, double end, double step) {
 
 void Filters::rescale(double step) {
     double start, end;
-    for (int i = 0; i < filters_.size(); ++i) {
+    for (size_t i = 0; i < filters_.size(); ++i) {
         start = filters_[i].inputWavelength_.front();
         start -= fmod(start, step);
         end = filters_[i].inputWavelength_.back();

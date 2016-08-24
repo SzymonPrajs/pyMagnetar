@@ -33,9 +33,9 @@ using namespace std;
 namespace vmath {  // NAMESPACE vmath
 
 template <typename T>
-void loadtxt(const string &fileName, int l, vector< vector<T> > &data) {
+void loadtxt(const string &fileName, size_t l, vector< vector<T> > &data) {
     data.resize(l);
-    for (int i = 0; i < l; ++i) {
+    for (size_t i = 0; i < l; ++i) {
         data[i].clear();
     }
 
@@ -47,7 +47,7 @@ void loadtxt(const string &fileName, int l, vector< vector<T> > &data) {
     while (getline(file, s)) {
         istringstream iss(s);
 
-        for (int i = 0; i < l; ++i) {
+        for (size_t i = 0; i < l; ++i) {
             iss >> temp;
             data[i].push_back(temp);
         }
@@ -58,7 +58,7 @@ void loadtxt(const string &fileName, int l, vector< vector<T> > &data) {
 
 
 template <typename T>
-vector< vector<T> > loadtxt(const string &fileName, int l) {
+vector< vector<T> > loadtxt(const string &fileName, size_t l) {
     vector< vector<T> > data;
     loadtxt<T>(fileName, l, data);
     return data;

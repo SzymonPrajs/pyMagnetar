@@ -14,7 +14,7 @@
  *
  *You should have received a copy of the GNU General Public License along
  *with this program; if not, write to the Free Software Foundation, Inc.,
- *51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+ *51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
  Contact author: S.Prajs@soton.ac.uk
  */
@@ -33,7 +33,7 @@ template <typename T>
 void add(const vector<T> &vec, T scalar, vector<T> &res) {
     res.resize(vec.size());
 
-    for (int i = 0; i < vec.size(); ++i) {
+    for (size_t i = 0; i < vec.size(); ++i) {
         res[i] = vec[i] + scalar;
     }
 }
@@ -42,7 +42,7 @@ void add(const vector<T> &vec, T scalar, vector<T> &res) {
 template <typename T>
 vector<T> add(vector<T> &vec, T scalar) {
     vector<T> res;
-    add<T>(vec, scalar, res); 
+    add<T>(vec, scalar, res);
     return res;
 }
 
@@ -55,7 +55,7 @@ void add(const vector<T> &vec1, const vector<T> &vec2, vector<T> &res) {
         res.resize(vec2.size());
     }
 
-    for (int i = 0; i < res.size(); ++i) {
+    for (size_t i = 0; i < res.size(); ++i) {
         res[i] = vec1[i] + vec2[i];
     }
 }
@@ -73,7 +73,7 @@ template <typename T>
 void mult(const vector<T> &vec, T scalar, vector<T> &res) {
     res.resize(vec.size());
 
-    for (int i = 0; i < vec.size(); ++i) {
+    for (size_t i = 0; i < vec.size(); ++i) {
         res[i] = vec[i]*scalar;
     }
 }
@@ -95,7 +95,7 @@ void mult(const vector<T> &vec1, const vector<T> &vec2, vector<T> &res) {
         res.resize(vec2.size());
     }
 
-    for (int i = 0; i < res.size(); ++i) {
+    for (size_t i = 0; i < res.size(); ++i) {
         res[i] = vec1[i]*vec2[i];
     }
 }
@@ -113,7 +113,7 @@ template <typename T>
 void div(const vector<T> &vec, T scalar, vector<T> &res) {
     res.resize(vec.size());
 
-    for (int i = 0; i < vec.size(); ++i) {
+    for (size_t i = 0; i < vec.size(); ++i) {
         res[i] = vec[i] / scalar;
     }
 }
@@ -130,7 +130,7 @@ template <typename T>
 void div(T scalar, const vector<T> &vec, vector<T> &res) {
     res.resize(vec.size());
 
-    for (int i = 0; i < vec.size(); ++i) {
+    for (size_t i = 0; i < vec.size(); ++i) {
         res[i] = scalar / vec[i];
     }
 }
@@ -152,7 +152,7 @@ void div(const vector<T> &vec1, const vector<T> &vec2, vector<T> &res) {
         res.resize(vec2.size());
     }
 
-    for (int i = 0; i < res.size(); ++i) {
+    for (size_t i = 0; i < res.size(); ++i) {
         res[i] = vec1[i] / vec2[i];
     }
 }
