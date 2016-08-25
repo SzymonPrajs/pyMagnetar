@@ -1,6 +1,7 @@
 from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
+import numpy
 
 # Remove the "-Wstrict-prototypes" compiler option, which isn't valid for C++.
 import distutils.sysconfig
@@ -12,7 +13,7 @@ for key, value in cfg_vars.items():
 ext = Extension(
     name = "pyMagnetar",
     sources = ["pyMagnetar.pyx", "src/magnetar.cpp", "src/utils.cpp", "src/Filters.cpp", "src/Cosmology.cpp"],
-    include_dirs = ["./", "src" "src/vmath"],
+    include_dirs = ["./", "src" "src/vmath", numpy.get_include()],
     libraries = ['gsl', 'cblas'],
     language = "c++",
     extra_compile_args = ["-std=c++11"],

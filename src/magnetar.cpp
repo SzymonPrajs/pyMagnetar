@@ -144,3 +144,12 @@ double cMagnetar::flux(double t, string f) {
 
     return filters_->flux(sed, f);
 }
+
+vector<double> cMagnetar::flux(double* tArr, size_t size, string f) {
+    vector<double> res(size,0);
+    for (size_t i = 0; i < size; ++i) {
+        res[i] = flux(tArr[i], f);
+    }
+
+    return res;
+}
