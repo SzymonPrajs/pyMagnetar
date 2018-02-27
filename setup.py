@@ -14,7 +14,8 @@ for key, value in cfg_vars.items():
 
 compile_args = ['-O3', '-std=c++11', '-stdlib=libc++']
 link_args = ['-std=c++11', '-stdlib=libc++']
-inc = ["./", "src" "src/vmath", numpy.get_include(), ".", "/usr/local/include", "/usr/local/include/"]
+inc = ["./", "src" "src/vmath", numpy.get_include(), ".", "/usr/local/include",
+       "/usr/local/include/"]
 lib = [".", "/usr/local/lib", "/usr/local/lib/"]
 
 if sys.platform == 'darwin':
@@ -22,13 +23,14 @@ if sys.platform == 'darwin':
     link_args.append('-mmacosx-version-min=10.7')
 
 ext = Extension(
-    name = "pyMagnetar",
-    sources = ["pyMagnetar.pyx", "src/magnetar.cpp", "src/utils.cpp", "src/Filters.cpp", "src/Cosmology.cpp"],
-    include_dirs = inc,
-    libraries = ['gsl', 'cblas'],
-    language = "c++",
-    extra_compile_args = compile_args,
-    extra_link_args = link_args
+    name="pyMagnetar",
+    sources=["pyMagnetar.pyx", "src/magnetar.cpp", "src/utils.cpp",
+             "src/Filters.cpp", "src/Cosmology.cpp"],
+    include_dirs=inc,
+    libraries=['gsl', 'cblas'],
+    language="c++",
+    extra_compile_args=compile_args,
+    extra_link_args=link_args
 
 )
 

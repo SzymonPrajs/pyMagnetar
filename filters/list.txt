@@ -1,4 +1,6 @@
 B.dat
+B400.dat
+B520.dat
 Bol.dat
 DES_g.dat
 DES_i.dat
@@ -28,4 +30,3 @@ SNLS_u.dat
 SNLS_z.dat
 U.dat
 V.dat
-list.txt

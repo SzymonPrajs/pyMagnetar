@@ -37,7 +37,7 @@ private:
 public:
 	cMagnetar(string);
 	~cMagnetar();
-    void setup(double,double,double,double);
+    void setup(double,double,double,double,double);
     double flux(double,string);
     vector<double> flux(double*,size_t,string);
 };

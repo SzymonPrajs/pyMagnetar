@@ -7,7 +7,7 @@ cimport cython
 cdef extern from "src/magnetar.h":
     cdef cppclass cMagnetar:
         cMagnetar(string)
-        void setup(double,double,double,double)
+        void setup(double,double,double,double,double)
         double flux(double, string)
         vector[double] flux(double*, size_t, string)
 
@@ -20,11 +20,16 @@ cdef class Magnetar:
     def __dealloc__(self):
         del self.thisptr
 
-    def setup(self, double tau, double B, double P, double z):
-        self.thisptr.setup(tau, B, P, z)
+    def setup(self, double tau, double B, double P, double t0, double z):
+        self.thisptr.setup(tau, B, P, t0, z)
 
-    def flux(self, double t, string f):
-        return self.thisptr.flux(t, f)
+    # def flux(self, double t, string f):
+    #     return self.thisptr.flux(t, f)
+
+    @cython.boundscheck(False)
+    @cython.wraparound(False)
+    def flux(self, np.ndarray[double, ndim=1, mode="c"] tArr not None, string f):
+        return self.thisptr.flux(<double*> tArr.data, tArr.size, f)
 
     @cython.boundscheck(False)
     @cython.wraparound(False)

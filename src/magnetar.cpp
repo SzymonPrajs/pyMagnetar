@@ -86,9 +86,9 @@ double cMagnetar::_lumSN(double t) {
 
 
 double cMagnetar::_radius(double t) {
-    double radiusCore = velocityCore_ * t;
-    double rhoCore = 3 * ejectedMass_ * 2e33 / (4 * M_PI * pow(velocityCore_ * t, 3));
-    double tauCore = opacity_ * rhoCore * velocityCore_ * t;
+    double radiusCore = velocityCore_ * (t + modelParams_[3]);
+    double rhoCore = 3 * ejectedMass_ * 2e33 / (4 * M_PI * pow(radiusCore, 3));
+    double tauCore = opacity_ * rhoCore * radiusCore;
 
     double rad19 = radiusCore * pow((alpha_ - 1) / tauCore, 1 / (1 - alpha_));
     double rad20 = radiusCore - (1 - tauCore / (alpha_ - 1)) / (opacity_ * rhoCore);
@@ -125,9 +125,9 @@ double cMagnetar::_calcSED(double wav) {
 }
 
 
-void cMagnetar::setup(double Tau, double B, double P, double z) {
+void cMagnetar::setup(double Tau, double B, double P, double t0, double z) {
     cosmology_->set(z);
-    modelParams_ = {Tau, B, P};
+    modelParams_ = {Tau, B, P, t0};
     _calcDerivedParams();
 }
 

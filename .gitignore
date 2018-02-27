@@ -90,3 +90,6 @@ ENV/
 
 # Mac rubbish
 *.DS_Store
+
+# SQLite
+*.db
