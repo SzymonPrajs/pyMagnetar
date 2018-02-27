@@ -145,7 +145,8 @@ double cMagnetar::flux(double t, string f) {
         sed[i] = _calcSED(filters_->filters_[ID].restWavelength_[i]);
         sed[i] *= cosmology_->a_ / (4 * M_PI * pow(cosmology_->lumDisCGS_, 2));
     }
-
+    
+    std::cout << t << " " << filters_->flux(sed, f) << std::endl;
     return filters_->flux(sed, f);
 }
 
