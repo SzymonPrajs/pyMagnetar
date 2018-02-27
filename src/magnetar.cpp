@@ -133,6 +133,10 @@ void cMagnetar::setup(double Tau, double B, double P, double t0, double z) {
 
 
 double cMagnetar::flux(double t, string f) {
+    if (t < 0 && t > 200) {
+        return 0.0;
+    }
+
     _calcSEDParams(t * cosmology_->a_);
     int ID = filters_->filterID_.at(f);
     vector<double> sed(filters_->filters_[ID].restWavelength_.size(), 0);
