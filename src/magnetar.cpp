@@ -133,7 +133,7 @@ void cMagnetar::setup(double Tau, double B, double P, double t0, double z) {
 
 
 double cMagnetar::flux(double t, string f) {
-    if (t <= 0 && t > 150) {
+    if (t <= 0 || t > 150) {
         return 0.0;
     }
 
