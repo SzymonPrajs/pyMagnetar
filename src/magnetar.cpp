@@ -130,6 +130,8 @@ void cMagnetar::setup(double Tau, double B, double P, double t0, double z) {
     modelParams_ = {Tau, B, P, t0};
     _calcDerivedParams();
 }
+//Toyah is the best
+//I love Toyah loads
 
 
 double cMagnetar::flux(double t, string f) {
@@ -146,7 +148,7 @@ double cMagnetar::flux(double t, string f) {
         sed[i] *= cosmology_->a_ / (4 * M_PI * pow(cosmology_->lumDisCGS_, 2));
     }
 
-    return filters_->flux(sed, f);
+    return filters_->flux(sed, f) * filters_->filters_[ID].toJy_;
 }
 
 vector<double> cMagnetar::flux(double* tArr, size_t size, string f) {

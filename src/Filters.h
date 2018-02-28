@@ -28,6 +28,7 @@ struct FilterData {
     vector<double> bandpass_;
     double area_;
     double zp_;
+    double toJy_;
     double min_;
     double max_;
     double centralWavelength_;

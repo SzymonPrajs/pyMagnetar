@@ -47,6 +47,7 @@ void Filters::loadFilter(int ID) {
 
     filter.area_ = trapz<double>(data[1], data[0][1] - data[0][0]);
     filter.zp_ = -2.5 * log10(fluxZp / filter.area_);
+    filter.toJy_ = pow(10.0, 0.4 * (filter.zp_ + 31.4));
     filter.centralWavelength_ = trapz<double>(mult<double>(data[1], data[0]), data[0][1] - data[0][0]) / filter.area_;
     filter.min_ = -1;
     filter.max_ = -1;
