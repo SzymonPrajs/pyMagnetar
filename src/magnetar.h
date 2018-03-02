@@ -2,6 +2,7 @@
 #define PYMAGNETAR_MAGNETAR_H_
 
 #include "Filters.h"
+#include "Absorption.h"
 #include "Cosmology.h"
 #include <string>
 #include <gsl/gsl_integration.h>
@@ -9,6 +10,7 @@
 class cMagnetar {
 private:
     unique_ptr<Filters> filters_;
+    unique_ptr<Absorption> abs_;
     unique_ptr<Cosmology> cosmology_;
     vector<double> SEDParams_;
     vector<double> modelParams_;

@@ -1,7 +1,9 @@
 #include "magnetar.h"
 using namespace std;
 
-cMagnetar::cMagnetar(string filterPath) : filters_(new Filters(filterPath)), cosmology_(new Cosmology(0.0)) {
+cMagnetar::cMagnetar(string filterPath) : filters_(new Filters(filterPath)),
+                                          abs_(new Absorption(filterPath)),
+                                          cosmology_(new Cosmology(0.0)) {
     modelParams_.resize(3);
     SEDParams_.resize(2);
 }
@@ -135,16 +137,19 @@ void cMagnetar::setup(double Tau, double B, double P, double t0, double z) {
 
 
 double cMagnetar::flux(double t, string f) {
-    if (t <= 0 || t > 150) {
+    if (t <= 0 || t > 200) {
         return 0.0;
     }
 
     _calcSEDParams(t * cosmology_->a_);
     int ID = filters_->filterID_.at(f);
+    filters_->filters_[ID].restWavelength_ = vmath::mult<double>(filters_->filters_[ID].wavelength_, cosmology_->a_);
+    abs_->rescale(filters_->filters_[ID].restWavelength_);
     vector<double> sed(filters_->filters_[ID].restWavelength_.size(), 0);
 
     for(size_t i = 0; i < filters_->filters_[ID].restWavelength_.size(); ++i) {
         sed[i] = _calcSED(filters_->filters_[ID].restWavelength_[i]);
+        sed[i] *= abs_->abs_[0].bandpass_[i];
         sed[i] *= cosmology_->a_ / (4 * M_PI * pow(cosmology_->lumDisCGS_, 2));
     }
 

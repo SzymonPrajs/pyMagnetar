@@ -25,7 +25,7 @@ if sys.platform == 'darwin':
 ext = Extension(
     name="pyMagnetar",
     sources=["pyMagnetar.pyx", "src/magnetar.cpp", "src/utils.cpp",
-             "src/Filters.cpp", "src/Cosmology.cpp"],
+             "src/Filters.cpp", "src/Absorption.cpp", "src/Cosmology.cpp"],
     include_dirs=inc,
     libraries=['gsl', 'cblas'],
     language="c++",
@@ -35,6 +35,6 @@ ext = Extension(
 )
 
 setup(
-    ext_modules = [ext],
-    cmdclass = {'build_ext': build_ext}
+    ext_modules=[ext],
+    cmdclass={'build_ext': build_ext}
 )
